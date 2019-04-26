@@ -43,6 +43,10 @@ jobs:
             make lint
 
   build-image:
+    branches:
+      only:
+        - master
+
     docker:
       # https://circleci.com/docs/2.0/circleci-images/
       # https://hub.docker.com/r/circleci/python/
@@ -78,6 +82,10 @@ jobs:
             make docker-push VERSION_SUFFIX=''
 
   deploy:
+    branches:
+      only:
+        - master
+
     docker:
       # https://circleci.com/docs/2.0/circleci-images/
       # https://hub.docker.com/r/circleci/python/
@@ -105,6 +113,10 @@ jobs:
           path: telepresence-dist.tbz
 
   build-linux:
+    branches:
+      only:
+        - master
+
     machine:
       enabled: true
       # https://circleci.com/docs/2.0/configuration-reference/#machine
@@ -171,6 +183,10 @@ jobs:
             ./ci/clean-cluster.py
 
   build-macos:
+    branches:
+      only:
+        - master
+
     macos:
       xcode: "9.0"
 
